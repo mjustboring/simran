@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Simran ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #16001f, #3b064d, #72004f);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Background glow */
+body::before {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    background: rgba(255, 72, 158, 0.15);
+    border-radius: 50%;
+    filter: blur(100px);
+    top: -150px;
+    left: -150px;
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 450px;
+    height: 450px;
+    background: rgba(174, 0, 255, 0.15);
+    border-radius: 50%;
+    filter: blur(100px);
+    bottom: -150px;
+    right: -150px;
+    z-index: -1;
+}
+
+/* Floating hearts */
+.hearts span {
+    position: fixed;
+    bottom: -50px;
+    font-size: 20px;
+    animation: floatUp linear infinite;
+    opacity: 0.7;
+    z-index: 0;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Hero */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 850px;
+    animation: fadeIn 1.5s ease;
+    z-index: 2;
+}
+
+.small-text {
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #ffb3d9;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: clamp(55px, 12vw, 120px);
+    line-height: 0.95;
+    background: linear-gradient(90deg, #fff, #ff9dce, #fff);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0%,100% { filter: brightness(1); }
+    50% { filter: brightness(1.5); }
+}
+
+.subtitle {
+    margin-top: 25px;
+    font-size: clamp(18px, 3vw, 26px);
+    color: #ffe4f2;
+}
+
+.date {
+    margin-top: 15px;
+    color: #ffb5d7;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 15px 32px;
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.12);
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+
+.button:hover {
+    transform: translateY(-4px) scale(1.04);
+    background: rgba(255,105,180,0.35);
+}
+
+/* Sections */
+section {
+    padding: 90px 20px;
+    text-align: center;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.section-title {
+    font-size: 42px;
+    margin-bottom: 35px;
+}
+
+.section-title span {
+    color: #ff82bd;
+}
+
+/* Photo */
+.photo-card {
+    width: min(380px, 90vw);
+    height: 450px;
+    margin: auto;
+    padding: 10px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #ff6eaf, #8d36ff);
+    box-shadow: 0 20px 70px rgba(0,0,0,0.4);
+    transform: rotate(-2deg);
+    transition: 0.5s;
+}
+
+.photo-card:hover {
+    transform: rotate(0deg) scale(1.03);
+}
+
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 18px;
+}
+
+/* Message */
+.message-box {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 25px;
+    padding: 40px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+}
+
+.message-box p {
+    font-size: 19px;
+    line-height: 1.9;
+    color: #ffeaf5;
+}
+
+/* Surprise */
+.surprise {
+    margin-top: 30px;
+}
+
+.hidden-message {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s ease, padding 1s ease;
+}
+
+.hidden-message.show {
+    max-height: 500px;
+    padding-top: 30px;
+}
+
+.hidden-message p {
+    font-size: 23px;
+    line-height: 1.8;
+    color: #ffd1e7;
+}
+
+/* Reasons */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.card {
+    padding: 30px 20px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    background: rgba(255,255,255,0.12);
+}
+
+.card .emoji {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #eecddd;
+    line-height: 1.6;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 50px 20px;
+    color: #dba9c7;
+}
+
+footer strong {
+    color: #ff86bd;
+}
+
+/* Fade */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Music button */
+.music {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.3);
+    background: rgba(255,255,255,.1);
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+}
+</style>
+</head>
+
+<body>
+
+<!-- Floating Hearts -->
+<div class="hearts">
+    <span style="left:5%; animation-duration:9s;">❤️</span>
+    <span style="left:15%; animation-duration:12s;">💗</span>
+    <span style="left:28%; animation-duration:8s;">💕</span>
+    <span style="left:42%; animation-duration:11s;">❤️</span>
+    <span style="left:55%; animation-duration:9s;">💖</span>
+    <span style="left:68%; animation-duration:13s;">💗</span>
+    <span style="left:80%; animation-duration:10s;">💕</span>
+    <span style="left:92%; animation-duration:8s;">❤️</span>
+</div>
+
+<!-- Music -->
+<button class="music" onclick="toggleMusic()">♫</button>
+
+<audio id="music" loop>
+    <!-- Add your own music file here -->
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+
+        <div class="small-text">A Special Day For Someone Special</div>
+
+        <h1>Happy Birthday<br>Simran ❤️</h1>
+
+        <p class="subtitle">
+            Today isn't just another day...<br>
+            it's the day someone incredibly special came into this world.
+        </p>
+
+        <p class="date">✨ September 17 ✨</p>
+
+        <a href="#message" class="button">
+            Open Your Surprise 💝
+        </a>
+
+    </div>
+</section>
+
+<!-- PHOTO -->
+<section>
+    <div class="container">
+
+        <h2 class="section-title">
+            A Little <span>Memory</span> 📸
+        </h2>
+
+        <div class="photo-card">
+            <!-- Replace photo.jpg with Simran's photo -->
+            <img src="photo.jpg" alt="Simran">
+        </div>
+
+        <p style="margin-top:30px;color:#e9c6d9;">
+            One picture can't capture everything that makes you special...
+            but this one holds a beautiful memory. ❤️
+        </p>
+
+    </div>
+</section>
+
+<!-- MESSAGE -->
+<section id="message">
+    <div class="container">
+
+        <h2 class="section-title">
+            For <span>Simran</span> 💌
+        </h2>
+
+        <div class="message-box">
+
+            <p>
+                Happy Birthday, Simran! ❤️
+            </p>
+
+            <p>
+                I hope today brings you as much happiness as you bring
+                to the people around you.
+            </p>
+
+            <p>
+                You deserve beautiful moments, genuine smiles,
+                unforgettable memories, and all the happiness in the world.
+            </p>
+
+            <p>
+                May this new chapter of your life be filled with
+                adventures, dreams coming true, and countless reasons to smile.
+            </p>
+
+            <p>
+                Keep being the wonderful person you are. ✨
+            </p>
+
+            <div class="surprise">
+                <button class="button" onclick="revealMessage()">
+                    💖 One More Thing...
+                </button>
+
+                <div class="hidden-message" id="hiddenMessage">
+                    <p>
+                        No matter how many birthdays come and go,
+                        I hope you always remember how special you are. ❤️
+                        <br><br>
+                        Happy Birthday once again, Simran! 🎂✨
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- LITTLE THINGS -->
+<section>
+    <div class="container">
+
+        <h2 class="section-title">
+            Things That Make You <span>Special</span> 💕
+        </h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="emoji">😊</div>
+                <h3>Your Smile</h3>
+                <p>
+                    A simple smile can make an ordinary moment feel special.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="emoji">✨</div>
+                <h3>Your Energy</h3>
+                <p>
+                    You have your own way of making moments memorable.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="emoji">💖</div>
+                <h3>Your Heart</h3>
+                <p>
+                    Your kindness and warmth are things worth celebrating.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- FINAL -->
+<section>
+    <div class="container">
+
+        <h2 style="font-size:clamp(35px,7vw,65px);">
+            Here's to <span style="color:#ff85bd;">You</span> 🥂
+        </h2>
+
+        <p style="font-size:20px;line-height:1.8;margin-top:25px;color:#f2d8e6;">
+            More laughter. More adventures. More beautiful memories.
+            <br>
+            And an amazing year ahead. ✨
+        </p>
+
+        <p style="font-size:30px;margin-top:35px;">
+            Happy Birthday, Simran! 🎂❤️
+        </p>
+
+    </div>
+</section>
+
+<footer>
+    Made with ❤️ specially for <strong>Simran</strong>
+</footer>
+
+<script>
+
+/* Surprise message */
+function revealMessage() {
+    document.getElementById("hiddenMessage").classList.toggle("show");
+}
+
+/* Music */
+const music = document.getElementById("music");
+let playing = false;
+
+function toggleMusic() {
+    if (playing) {
+        music.pause();
+        playing = false;
+    } else {
+        music.play().catch(() => {
+            alert("Add a music.mp3 file to the same folder first.");
+        });
+        playing = true;
+    }
+}
+
+/* Extra floating hearts */
+function createHeart() {
+
+    const heart = document.createElement("span");
+
+    const symbols = ["❤️", "💗", "💖", "💕", "✨"];
+    heart.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+
+    heart.style.position = "fixed";
+    heart.style.left = Math.random() * 100 + "%";
+    heart.style.bottom = "-30px";
+    heart.style.fontSize = (15 + Math.random() * 25) + "px";
+    heart.style.animation = `floatUp ${6 + Math.random() * 7}s linear`;
+
+    document.querySelector(".hearts").appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 14000);
+}
+
+setInterval(createHeart, 700);
+
+</script>
+
+</body>
+</html>
